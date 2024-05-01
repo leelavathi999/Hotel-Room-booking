@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESERVATION
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<style>
+body {
+background-image: url(hotel2.png);
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+  font-family: "Asap", sans-serif;
+  margin:10px;
+  font-size:20px;
+  color:rgb(221, 236, 236);
+
+}
+</style>
+
+</head>
+
+<body>
+<center><h2>ROOM RESERVATION</h2></center><hr>
+<form name="myform" id="forms" method="post" action="e.php" onsubmit="name()||email()||phone()||gender()||validate()">
+<center>
+<div class="container-fluid">
+   
+    <div class="row ">
+        <div class="col-md">
+        <table>
+            <th>
+                <h4>Personal Information</h4>
+            </th>
+            <tr>
+                <td>
+                    <p><span class="error">* required field</span></p>
+                </td>
+            </tr>
+        <tr>
+            <td>
+             <div class=" form-group">
+            <label class="form-label" for="fname">First Name: &nbsp;&nbsp;</label>
+            <span class="error">*</span>
+        
+            </div> 
+           
+                <input class="form-control" type="text" name="fname" id="fname" >
+            </td>
+        </tr>  
+        <tr>
+            <td>
+             <div class=" form-group">
+            <label class="form-label" for="lname">Last Name: </label>
+            <span class="error">*</span>
+
+            </div> 
+           
+                <input class="form-control" type="text" name="lname" id="lname" >
+            </td>
+        </tr> 
+        <tr>
+            <td>
+             <div class=" form-group">
+            <label class="form-label" for="email">Email: </label>
+            <span class="error">*</span>
+            
+            </div> 
+            
+                <input class="form-control" type="email" name="email" id="email" placeholder="username@gmail.com">
+                <br>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+            <div class="form-group">
+                <label for="gender" class="form-check-label">Gender:&nbsp;&nbsp;  </label>
+                <span class="error">*</span>
+                &nbsp;&nbsp;
+                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                <label for="male">Male</label>&nbsp;&nbsp;
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label for="female">Female</label>
+            </div>
+            </td>
+        </tr> 
+        
+        <tr>
+            <td>
+                <br>
+             <div class=" form-group">
+            <label class="form-label" for="phone">Phone Number:</label>
+            <span class="error">*</span>
+
+            </div> 
+            
+                <input class="form-control" type="tel" name="phone" id="phone">
+            </td>
+        </tr>    
+        <tr>
+            <td>
+             <div class=" form-group">
+            <label class="form-label" for="address">Address: &nbsp;&nbsp;</label>
+            </div> 
+                <textarea cols="40" id="address" class="form-control" name="address">
+
+                </textarea>
+            </td>
+        </tr>                                                                                                                                                              
+        </table>
+        </div>
+        <div class="col-md">
+  
+            <table>
+                <th>
+                    <h4>Reservation Information</h4>
+                </th>
+                <tr>
+                    <td>
+                       <br>
+                       <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label" for="select1">Type of Room</label>
+                        <span class="error">*</span>
+                    <div class="form-group" >
+                    
+                        <select class="form-control" id="select1" name="select1" required >
+                            <option value="not"> select room</option>
+                            <option value="Superior Room">Superior Room</option>
+                            <option value="Deluxe Room">Delux Room</option>
+                            <option value="Luxury Room">Luxury Room</option>
+                            <option value="Single Room">Single Room</option>
+                        </select>
+                    </div>
+                    
+                    </td>
+                </tr>  
+                <tr>
+                    <td><label class="form-label" for="select2">Bedding Type:</label>
+                        <span class="error">*</span>
+                    <div class="form-group" >
+                    
+                        <select class="form-control" id="select2" name="select2" required >
+                            <option value="not"> </option>
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Triple">Triple</option>
+                            <option value="none">none</option>
+                        </select>
+                    </div>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="form-label" for="select3">Number of Rooms:</label>
+                        <span class="error">*</span>
+                    <div class="form-group" >
+                    
+                        <select class="form-control" id="select3" name="select3" required >
+                            <option value="not"> </option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                    
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label" for="Check_in">Check-in:</label>
+                        <span class="error">*</span>
+                        <div class="form-group">
+                            <input class="form-control" type="date" name="Check_in"id="Check_in"  >
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="form-label" for="Check_out">Check-out:</label>
+                        <span class="error">*</span>
+                        <div class="form-group">
+                            <input class="form-control" type="date" name="Check_out"id="Check_out" >
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class=" form-group">
+                            <label class="form-label" for="add">Additional Requirements &nbsp;&nbsp;</label>
+                            </div> 
+                                <textarea cols="40" id="add" class="form-control" name="requirements">
+                
+                                </textarea>
+                            </td>
+                    </td>
+                </tr>
+                </table>
+          <br>
+        </div>
+      </div>
+</div>
+<a href="main.php" class=" btn btn-warning"  type="button" value="Home">Home</a>
+<input type="submit" class="btn btn-success" value="Submit">
+<input type="reset" class="btn btn-secondary" value="Reset">
+</center> 
+</form>
+<script>
+forms.addEventListener('submit',(e)=>{
+    name();
+    email();
+    phone();
+    gender();
+    validate();
+})
+function name(){
+    var fname=document.myform.fname.value.trim();
+    var lname=document.myform.lname.value.trim();
+    let name_pattern=/^[a-z A-Z]+$/;
+    if(fname == null||fname ==""){
+        alert("First Name Can't be Empty!!! ");
+        return false;
+    }
+    else if(lname == null||lname ==""){
+        alert("Last Name Can't be Empty!!! ");
+        return false;
+    }
+    else if(fname.length<4||lname.length<4){
+        alert("Name contains atleast 3 letters!!!");
+        return false;
+    }
+    else if(!(name_pattern.test(fname))){
+        alert("Name Only Contains Alphabets");
+        return false;
+     }
+     else{
+        return true;
+     }
+}
+function email(){
+    var email=document.myform.email.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(email == null||email == ""){
+       alert("Email is Required!!");
+       return false;
+    }
+    else if(!(emailRegex.test(email))){
+        alert("Invalid Email!!");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function phone(){
+    var number=document.myform.phone.value.trim();
+    var pattern=/^(0|91)?[6-9][0-9]{9}$/;
+    if(number == null||number ==""||number.length!=10){
+            alert("number can't be empty and must contains 10 digits");
+            return false;
+    }
+    else if(!(pattern.test(number))){
+        alert("Invalid Phone Number!!");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function gender(){
+    var gender=document.myform.gender.value;
+    if(gender == null){
+        alert("Gender is Required!!");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+function validate(){
+    var Check_in=document.myform.Check_in.value;
+    var Check_out=document.myform.Check_out.value;
+
+    if(Check_in== null||Check_out== null){
+        alert("Checkin and Checkout Mandatory!");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+</script>
+</body>
+</html>
